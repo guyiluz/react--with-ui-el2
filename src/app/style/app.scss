@@ -2,6 +2,7 @@
 @import 'nav';
 @import 'search';
 @import '../../../node_modules/semantic-ui-css/semantic.min.css';
+@import 'slidebar';
 
 html,body {
 margin: 0;
@@ -18,11 +19,11 @@ html,body{
   display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-rows: auto;
-    grid-template-rows: 5vh 20vh 70vh 5vh;
+    grid-template-rows: 5vh 30vh 60vh 5vh;
      grid-template-areas: 
     "a a a a a a"
      ". . b . . ."
-       " c c c c c c "
+       " . . c c . . "
            " d d d d d d "
     
    
@@ -52,7 +53,3 @@ display: flex;
   }
   
 
-td{
-    border: solid 1px grey;
-
-}

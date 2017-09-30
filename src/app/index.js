@@ -11,7 +11,7 @@ import  Layout  from "./components/Layout";
 // other
 
 ReactDOM.render((
-     <BrowserRouter>
+<BrowserRouter>
           <Route path="/" component={Layout}/>
      </BrowserRouter>
      ),

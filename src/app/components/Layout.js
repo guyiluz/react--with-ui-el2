@@ -14,24 +14,46 @@ class Layout extends React.Component {
 super(props)
     this.state = {
         data: false,
-        users:""
+        users:"",
+        did:""
       };
 
   }
 
-
-
-getData=(data)=>{
-    if(data.length!==0)
-    fetch( `https://api.github.com/search/users?q=${data}`)
-    .then((res)=>{
+  componentDidMount() {
+    console.log('Child did mount.');
+    fetch( `https://api.github.com/search/users?q=guy`)
+    .then((response)=>{
         if (!response.ok) {
         throw Error(response.statusText);
         }
-        return res.json()
+        return response.json()
     }).then((data)=>{
         this.setState({
-            users:data.items
+            did:data
+        })
+        console.log(this.state.did)
+    }).catch((error)=> {
+        console.log(error);
+    });
+
+
+  }
+
+  
+
+getData=(data)=>{
+    if(data.length!==0)
+    
+    fetch( `http://api.openweathermap.org/data/2.5/weather?q=${data}&appid=40a2227f4f354415c67895e3a7709571&units=metric`)
+    .then((response)=>{
+        if (!response.ok) {
+        throw Error(response.statusText);
+        }
+        return response.json()
+    }).then((data)=>{
+        this.setState({
+            users:data
         })
         console.log(this.state.users)
     }).catch((error)=> {
@@ -48,13 +70,16 @@ getData=(data)=>{
 
     
     render() {
-const users =this.state.users
+        
+        const {users, did} = this.state;
+
+
         return (
             <div className="layout">
                 {this.state.data}
      <Nav/>
      <Search getData ={this.getData}/>
-     <Chart users={users}/>
+     <Chart users={users} did={did}/>
           </div>  
           
         )

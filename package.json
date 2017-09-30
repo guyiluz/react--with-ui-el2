@@ -14,6 +14,7 @@
     "common-config": "^0.1.0",
     "element-react": "^1.2.1",
     "element-theme-default": "^1.4.6",
+    "rc-slider": "^8.3.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-icons": "^2.2.5",
@@ -36,7 +37,9 @@
     "react-table": "^6.5.3",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
     "webpack": "^1.15.0",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^4.1.0"
   }
 }

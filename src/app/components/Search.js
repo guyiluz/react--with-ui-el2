@@ -1,6 +1,8 @@
 // lib
 import { Button,Input } from 'semantic-ui-react'
 import React from 'react'
+
+
 // components
 
  
@@ -8,30 +10,40 @@ import React from 'react'
 
 
 class Search extends React.Component {
-  
-heandleClick(e) {
-e.preventDefault()  
-  const searchVal =this.refs.search.value
-  this.props.getData(searchVal)
-  debugger
-}
+  constructor() {
+    super();
+    this.state = {value: ''};
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+
+  handleSubmit(event) {
+    console.log('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+    const searchVal =this.state.value
+    this.props.getData(searchVal)
+    
+
+  }
 
 
 
 
 
 
-
+  change = e=> {
+this.setState({
+[e.target.name]:e.target.value  
+})
+  }
 
     
     render() {
-console.log(this.props)
         return (
             <div className="search">
   
-   <form>
-          <Input type="search" placeholder="Search" ref="search" />
-          <Button type="button" onClick={this.heandleClick.bind(this)}>Search</Button>
+   <form onSubmit={this.handleSubmit} >
+   <Input name="value" onChange={e=>this.change(e)}  action={{ color: 'teal', labelPosition: 'left', icon: 'search', content: 'search' }} placeholder='Search...' />
         </form>
 
 

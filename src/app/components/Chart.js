@@ -1,57 +1,62 @@
 // lib
+import {Table, List} from 'semantic-ui-react'
+// import Slider, { Range } from 'rc-slider';
 import React from 'react'
-import ReactTable from "react-table";
-import JsonTable  from "react-json-table"
 // components
 
- 
 // other
+
 
 
 
 class Chart extends React.Component {
   
-
-
-
-
 rednerUsers=()=>{
     const uData =this.props.users 
    if(typeof uData!=='object'){
-       return false
-   }
+       return ''
+   }else
+ console.log(uData)
+ 
+   
+  
+   
+
+
+
+
+   
   
 return (
-<table>
-<tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Age</th>
-  </tr>
-      <tbody>{uData.map(function(item, key) {
-             
-               return (
-             
-                  <tr key = {key}>
-                      <td>{item.login}</td>
-                      <td>{item.id}</td>
-                      <td>{item.type}</td>
-                      <td>{item.score}</td>
-                  </tr>
-                  
-                )
-             
-             })}</tbody>
-       </table>
+    <List>
+    <List.Item>
+      <List.Icon name='thermometer empty' />
+      <List.Content>{uData.main.temp}</List.Content>
+    </List.Item>
+    <List.Item>
+      <List.Icon name='marker' />
+      <List.Content>{uData.name}</List.Content>
+    </List.Item>
+    <List.Item>
+      <List.Icon name='find' />
+      <List.Content>
+        {uData.weather["0"].description}
+      </List.Content>
+    </List.Item>
+    <List.Item>
+      <List.Icon name='linkify' />
+      <List.Content>
+        <a href='http://www.semantic-ui.com'>semantic-ui.com</a>
+      </List.Content>
+    </List.Item>
+  </List>
 
 
-)
+)}
+
  
 
- 
 
-
-}
 
 
     
